@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../date_time_serializer.dart';
+
 part 'session.freezed.dart';
 
 part 'session.g.dart';
@@ -10,8 +12,8 @@ abstract class Session with _$Session {
     required String id,
     required String token,
     required DateTime expiresAt,
-    DateTime? createdAt,
-    DateTime? updatedAt,
+    @DateTimeSerializer() DateTime? createdAt,
+    @DateTimeSerializer() DateTime? updatedAt,
     String? ipAddress,
     String? userAgent,
     required String userId,

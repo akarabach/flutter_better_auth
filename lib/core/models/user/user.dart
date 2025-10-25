@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../date_time_serializer.dart';
+
 part 'user.freezed.dart';
 
 part 'user.g.dart';
@@ -12,8 +14,8 @@ abstract class User with _$User {
     required String email,
     @Default(false) bool emailVerified,
     String? image,
-    @Default(null) DateTime? createdAt,
-    @Default(null) DateTime? updatedAt,
+    @DateTimeSerializer() @Default(null) DateTime? createdAt,
+    @DateTimeSerializer() @Default(null) DateTime? updatedAt,
     @Default(false) bool twoFactorEnabled,
     String? username,
     String? displayUsername,

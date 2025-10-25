@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$User {
 
- String get id; String get name; String get email; bool get emailVerified; String? get image; DateTime? get createdAt; DateTime? get updatedAt; bool get twoFactorEnabled; String? get username; String? get displayUsername; bool get isAnonymous; String? get phoneNumber; bool get phoneNumberVerified; String? get role; bool get banned; String? get banReason; DateTime? get banExpires;
+ String get id; String get name; String get email; bool get emailVerified; String? get image;@DateTimeSerializer() DateTime? get createdAt;@DateTimeSerializer() DateTime? get updatedAt; bool get twoFactorEnabled; String? get username; String? get displayUsername; bool get isAnonymous; String? get phoneNumber; bool get phoneNumberVerified; String? get role; bool get banned; String? get banReason; DateTime? get banExpires;
 /// Create a copy of User
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $UserCopyWith<$Res>  {
   factory $UserCopyWith(User value, $Res Function(User) _then) = _$UserCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String email, bool emailVerified, String? image, DateTime? createdAt, DateTime? updatedAt, bool twoFactorEnabled, String? username, String? displayUsername, bool isAnonymous, String? phoneNumber, bool phoneNumberVerified, String? role, bool banned, String? banReason, DateTime? banExpires
+ String id, String name, String email, bool emailVerified, String? image,@DateTimeSerializer() DateTime? createdAt,@DateTimeSerializer() DateTime? updatedAt, bool twoFactorEnabled, String? username, String? displayUsername, bool isAnonymous, String? phoneNumber, bool phoneNumberVerified, String? role, bool banned, String? banReason, DateTime? banExpires
 });
 
 
@@ -169,7 +169,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String email,  bool emailVerified,  String? image,  DateTime? createdAt,  DateTime? updatedAt,  bool twoFactorEnabled,  String? username,  String? displayUsername,  bool isAnonymous,  String? phoneNumber,  bool phoneNumberVerified,  String? role,  bool banned,  String? banReason,  DateTime? banExpires)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String email,  bool emailVerified,  String? image, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  bool twoFactorEnabled,  String? username,  String? displayUsername,  bool isAnonymous,  String? phoneNumber,  bool phoneNumberVerified,  String? role,  bool banned,  String? banReason,  DateTime? banExpires)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _User() when $default != null:
 return $default(_that.id,_that.name,_that.email,_that.emailVerified,_that.image,_that.createdAt,_that.updatedAt,_that.twoFactorEnabled,_that.username,_that.displayUsername,_that.isAnonymous,_that.phoneNumber,_that.phoneNumberVerified,_that.role,_that.banned,_that.banReason,_that.banExpires);case _:
@@ -190,7 +190,7 @@ return $default(_that.id,_that.name,_that.email,_that.emailVerified,_that.image,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String email,  bool emailVerified,  String? image,  DateTime? createdAt,  DateTime? updatedAt,  bool twoFactorEnabled,  String? username,  String? displayUsername,  bool isAnonymous,  String? phoneNumber,  bool phoneNumberVerified,  String? role,  bool banned,  String? banReason,  DateTime? banExpires)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String email,  bool emailVerified,  String? image, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  bool twoFactorEnabled,  String? username,  String? displayUsername,  bool isAnonymous,  String? phoneNumber,  bool phoneNumberVerified,  String? role,  bool banned,  String? banReason,  DateTime? banExpires)  $default,) {final _that = this;
 switch (_that) {
 case _User():
 return $default(_that.id,_that.name,_that.email,_that.emailVerified,_that.image,_that.createdAt,_that.updatedAt,_that.twoFactorEnabled,_that.username,_that.displayUsername,_that.isAnonymous,_that.phoneNumber,_that.phoneNumberVerified,_that.role,_that.banned,_that.banReason,_that.banExpires);case _:
@@ -210,7 +210,7 @@ return $default(_that.id,_that.name,_that.email,_that.emailVerified,_that.image,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String email,  bool emailVerified,  String? image,  DateTime? createdAt,  DateTime? updatedAt,  bool twoFactorEnabled,  String? username,  String? displayUsername,  bool isAnonymous,  String? phoneNumber,  bool phoneNumberVerified,  String? role,  bool banned,  String? banReason,  DateTime? banExpires)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String email,  bool emailVerified,  String? image, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  bool twoFactorEnabled,  String? username,  String? displayUsername,  bool isAnonymous,  String? phoneNumber,  bool phoneNumberVerified,  String? role,  bool banned,  String? banReason,  DateTime? banExpires)?  $default,) {final _that = this;
 switch (_that) {
 case _User() when $default != null:
 return $default(_that.id,_that.name,_that.email,_that.emailVerified,_that.image,_that.createdAt,_that.updatedAt,_that.twoFactorEnabled,_that.username,_that.displayUsername,_that.isAnonymous,_that.phoneNumber,_that.phoneNumberVerified,_that.role,_that.banned,_that.banReason,_that.banExpires);case _:
@@ -225,7 +225,7 @@ return $default(_that.id,_that.name,_that.email,_that.emailVerified,_that.image,
 @JsonSerializable()
 
 class _User implements User {
-  const _User({required this.id, required this.name, required this.email, this.emailVerified = false, this.image, this.createdAt = null, this.updatedAt = null, this.twoFactorEnabled = false, this.username, this.displayUsername, this.isAnonymous = false, this.phoneNumber, this.phoneNumberVerified = false, this.role, this.banned = false, this.banReason, this.banExpires});
+  const _User({required this.id, required this.name, required this.email, this.emailVerified = false, this.image, @DateTimeSerializer() this.createdAt = null, @DateTimeSerializer() this.updatedAt = null, this.twoFactorEnabled = false, this.username, this.displayUsername, this.isAnonymous = false, this.phoneNumber, this.phoneNumberVerified = false, this.role, this.banned = false, this.banReason, this.banExpires});
   factory _User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
 @override final  String id;
@@ -233,8 +233,8 @@ class _User implements User {
 @override final  String email;
 @override@JsonKey() final  bool emailVerified;
 @override final  String? image;
-@override@JsonKey() final  DateTime? createdAt;
-@override@JsonKey() final  DateTime? updatedAt;
+@override@JsonKey()@DateTimeSerializer() final  DateTime? createdAt;
+@override@JsonKey()@DateTimeSerializer() final  DateTime? updatedAt;
 @override@JsonKey() final  bool twoFactorEnabled;
 @override final  String? username;
 @override final  String? displayUsername;
@@ -279,7 +279,7 @@ abstract mixin class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) _then) = __$UserCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String email, bool emailVerified, String? image, DateTime? createdAt, DateTime? updatedAt, bool twoFactorEnabled, String? username, String? displayUsername, bool isAnonymous, String? phoneNumber, bool phoneNumberVerified, String? role, bool banned, String? banReason, DateTime? banExpires
+ String id, String name, String email, bool emailVerified, String? image,@DateTimeSerializer() DateTime? createdAt,@DateTimeSerializer() DateTime? updatedAt, bool twoFactorEnabled, String? username, String? displayUsername, bool isAnonymous, String? phoneNumber, bool phoneNumberVerified, String? role, bool banned, String? banReason, DateTime? banExpires
 });
 
 

@@ -15,11 +15,11 @@ _User _$UserFromJson(Map<String, dynamic> json) => _User(
   createdAt:
       json['createdAt'] == null
           ? null
-          : DateTime.parse(json['createdAt'] as String),
+          : const DateTimeSerializer().fromJson(json['createdAt']),
   updatedAt:
       json['updatedAt'] == null
           ? null
-          : DateTime.parse(json['updatedAt'] as String),
+          : const DateTimeSerializer().fromJson(json['updatedAt']),
   twoFactorEnabled: json['twoFactorEnabled'] as bool? ?? false,
   username: json['username'] as String?,
   displayUsername: json['displayUsername'] as String?,
@@ -41,8 +41,14 @@ Map<String, dynamic> _$UserToJson(_User instance) => <String, dynamic>{
   'email': instance.email,
   'emailVerified': instance.emailVerified,
   'image': instance.image,
-  'createdAt': instance.createdAt?.toIso8601String(),
-  'updatedAt': instance.updatedAt?.toIso8601String(),
+  'createdAt': _$JsonConverterToJson<dynamic, DateTime>(
+    instance.createdAt,
+    const DateTimeSerializer().toJson,
+  ),
+  'updatedAt': _$JsonConverterToJson<dynamic, DateTime>(
+    instance.updatedAt,
+    const DateTimeSerializer().toJson,
+  ),
   'twoFactorEnabled': instance.twoFactorEnabled,
   'username': instance.username,
   'displayUsername': instance.displayUsername,
@@ -54,3 +60,8 @@ Map<String, dynamic> _$UserToJson(_User instance) => <String, dynamic>{
   'banReason': instance.banReason,
   'banExpires': instance.banExpires?.toIso8601String(),
 };
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) => value == null ? null : toJson(value);
