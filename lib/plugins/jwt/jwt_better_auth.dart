@@ -16,9 +16,9 @@ abstract class JwtBetterAuth {
     ParseErrorLogger? errorLogger,
   }) = _JwtBetterAuth;
 
-  @GET('/jwks')
+  @GET('/convex/jwks')
   Future<Result<JwtKeyResponse>> jwks();
 
-  @GET('/token')
+  @GET('/convex/token')
   Future<Result<JwtTokenResponse>> token();
 }

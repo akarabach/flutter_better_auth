@@ -26,7 +26,7 @@ class _JwtBetterAuth implements JwtBetterAuth {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/jwks',
+            '/convex/jwks',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -58,7 +58,7 @@ class _JwtBetterAuth implements JwtBetterAuth {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/token',
+            '/convex/token',
             queryParameters: queryParameters,
             data: _data,
           )
