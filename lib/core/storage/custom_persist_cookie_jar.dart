@@ -9,7 +9,10 @@ class CustomPersistCookieJar extends PersistCookieJar {
 
   @override
   Future<void> saveFromResponse(Uri uri, List<Cookie> cookies) async {
-    print('saveFromResponse ${uri} cookies: ${cookies.length}');
+    if (uri.path.contains('/convex/token') ||
+        uri.path.contains('/convex/jwks')) {
+      return;
+    }
     await store?.saveCookies(uri.host, cookies);
     return super.saveFromResponse(uri, cookies);
   }
@@ -17,7 +20,6 @@ class CustomPersistCookieJar extends PersistCookieJar {
   @override
   Future<List<Cookie>> loadForRequest(Uri uri) async {
     final cookies = await store?.loadCookies(uri.host) ?? [];
-    print('loadForRequest ${uri.host}, cookies: ${cookies.length}');
     return cookies;
   }
 }
