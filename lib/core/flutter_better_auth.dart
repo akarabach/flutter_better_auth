@@ -55,7 +55,7 @@ class FlutterBetterAuth {
       store: storage,
       storage: MemoryStorage(),
     );
-    dioClient.interceptors.add(CookieManager(cookieJar));
+    dioClient.interceptors.add(CookieManager(cookieJar, ));
     dioClient.interceptors.add(RemoveNullsInterceptor());
     _initialized = true;
   }
