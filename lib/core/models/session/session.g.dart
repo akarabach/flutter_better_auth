@@ -9,7 +9,7 @@ part of 'session.dart';
 _Session _$SessionFromJson(Map<String, dynamic> json) => _Session(
   id: json['id'] as String,
   token: json['token'] as String,
-  expiresAt: DateTime.parse(json['expiresAt'] as String),
+  expiresAt: const DateTimeSerializer().fromJson(json['expiresAt']),
   createdAt: const DateTimeSerializer().fromJson(json['createdAt']),
   updatedAt: const DateTimeSerializer().fromJson(json['updatedAt']),
   ipAddress: json['ipAddress'] as String?,
@@ -22,7 +22,7 @@ _Session _$SessionFromJson(Map<String, dynamic> json) => _Session(
 Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{
   'id': instance.id,
   'token': instance.token,
-  'expiresAt': instance.expiresAt.toIso8601String(),
+  'expiresAt': const DateTimeSerializer().toJson(instance.expiresAt),
   'createdAt': _$JsonConverterToJson<dynamic, DateTime>(
     instance.createdAt,
     const DateTimeSerializer().toJson,

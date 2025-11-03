@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Session {
 
- String get id; String get token; DateTime get expiresAt;@DateTimeSerializer() DateTime? get createdAt;@DateTimeSerializer() DateTime? get updatedAt; String? get ipAddress; String? get userAgent; String get userId; String? get impersonatedBy; String? get activeOrganizationId;
+ String get id; String get token;@DateTimeSerializer() DateTime get expiresAt;@DateTimeSerializer() DateTime? get createdAt;@DateTimeSerializer() DateTime? get updatedAt; String? get ipAddress; String? get userAgent; String get userId; String? get impersonatedBy; String? get activeOrganizationId;
 /// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SessionCopyWith<$Res>  {
   factory $SessionCopyWith(Session value, $Res Function(Session) _then) = _$SessionCopyWithImpl;
 @useResult
 $Res call({
- String id, String token, DateTime expiresAt,@DateTimeSerializer() DateTime? createdAt,@DateTimeSerializer() DateTime? updatedAt, String? ipAddress, String? userAgent, String userId, String? impersonatedBy, String? activeOrganizationId
+ String id, String token,@DateTimeSerializer() DateTime expiresAt,@DateTimeSerializer() DateTime? createdAt,@DateTimeSerializer() DateTime? updatedAt, String? ipAddress, String? userAgent, String userId, String? impersonatedBy, String? activeOrganizationId
 });
 
 
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String token,  DateTime expiresAt, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  String? ipAddress,  String? userAgent,  String userId,  String? impersonatedBy,  String? activeOrganizationId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String token, @DateTimeSerializer()  DateTime expiresAt, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  String? ipAddress,  String? userAgent,  String userId,  String? impersonatedBy,  String? activeOrganizationId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Session() when $default != null:
 return $default(_that.id,_that.token,_that.expiresAt,_that.createdAt,_that.updatedAt,_that.ipAddress,_that.userAgent,_that.userId,_that.impersonatedBy,_that.activeOrganizationId);case _:
@@ -183,7 +183,7 @@ return $default(_that.id,_that.token,_that.expiresAt,_that.createdAt,_that.updat
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String token,  DateTime expiresAt, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  String? ipAddress,  String? userAgent,  String userId,  String? impersonatedBy,  String? activeOrganizationId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String token, @DateTimeSerializer()  DateTime expiresAt, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  String? ipAddress,  String? userAgent,  String userId,  String? impersonatedBy,  String? activeOrganizationId)  $default,) {final _that = this;
 switch (_that) {
 case _Session():
 return $default(_that.id,_that.token,_that.expiresAt,_that.createdAt,_that.updatedAt,_that.ipAddress,_that.userAgent,_that.userId,_that.impersonatedBy,_that.activeOrganizationId);case _:
@@ -203,7 +203,7 @@ return $default(_that.id,_that.token,_that.expiresAt,_that.createdAt,_that.updat
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String token,  DateTime expiresAt, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  String? ipAddress,  String? userAgent,  String userId,  String? impersonatedBy,  String? activeOrganizationId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String token, @DateTimeSerializer()  DateTime expiresAt, @DateTimeSerializer()  DateTime? createdAt, @DateTimeSerializer()  DateTime? updatedAt,  String? ipAddress,  String? userAgent,  String userId,  String? impersonatedBy,  String? activeOrganizationId)?  $default,) {final _that = this;
 switch (_that) {
 case _Session() when $default != null:
 return $default(_that.id,_that.token,_that.expiresAt,_that.createdAt,_that.updatedAt,_that.ipAddress,_that.userAgent,_that.userId,_that.impersonatedBy,_that.activeOrganizationId);case _:
@@ -218,12 +218,12 @@ return $default(_that.id,_that.token,_that.expiresAt,_that.createdAt,_that.updat
 @JsonSerializable()
 
 class _Session implements Session {
-  const _Session({required this.id, required this.token, required this.expiresAt, @DateTimeSerializer() this.createdAt, @DateTimeSerializer() this.updatedAt, this.ipAddress, this.userAgent, required this.userId, this.impersonatedBy, this.activeOrganizationId});
+  const _Session({required this.id, required this.token, @DateTimeSerializer() required this.expiresAt, @DateTimeSerializer() this.createdAt, @DateTimeSerializer() this.updatedAt, this.ipAddress, this.userAgent, required this.userId, this.impersonatedBy, this.activeOrganizationId});
   factory _Session.fromJson(Map<String, dynamic> json) => _$SessionFromJson(json);
 
 @override final  String id;
 @override final  String token;
-@override final  DateTime expiresAt;
+@override@DateTimeSerializer() final  DateTime expiresAt;
 @override@DateTimeSerializer() final  DateTime? createdAt;
 @override@DateTimeSerializer() final  DateTime? updatedAt;
 @override final  String? ipAddress;
@@ -265,7 +265,7 @@ abstract mixin class _$SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   factory _$SessionCopyWith(_Session value, $Res Function(_Session) _then) = __$SessionCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String token, DateTime expiresAt,@DateTimeSerializer() DateTime? createdAt,@DateTimeSerializer() DateTime? updatedAt, String? ipAddress, String? userAgent, String userId, String? impersonatedBy, String? activeOrganizationId
+ String id, String token,@DateTimeSerializer() DateTime expiresAt,@DateTimeSerializer() DateTime? createdAt,@DateTimeSerializer() DateTime? updatedAt, String? ipAddress, String? userAgent, String userId, String? impersonatedBy, String? activeOrganizationId
 });
 
 

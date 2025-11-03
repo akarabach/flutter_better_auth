@@ -11,7 +11,7 @@ abstract class Session with _$Session {
   const factory Session({
     required String id,
     required String token,
-    required DateTime expiresAt,
+    @DateTimeSerializer() required DateTime expiresAt,
     @DateTimeSerializer() DateTime? createdAt,
     @DateTimeSerializer() DateTime? updatedAt,
     String? ipAddress,
