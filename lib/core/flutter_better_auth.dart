@@ -45,6 +45,7 @@ class FlutterBetterAuth {
               HttpHeaders.contentTypeHeader: 'application/json',
               HttpHeaders.userAgentHeader: 'FlutterBetterAuth/1.0.0',
               'flutter-origin': 'flutter://',
+              'Origin': 'flutter://',
               'expo-origin': 'exp://',
               'x-skip-oauth-proxy': true,
             },
