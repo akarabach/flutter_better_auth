@@ -12,14 +12,12 @@ _User _$UserFromJson(Map<String, dynamic> json) => _User(
   email: json['email'] as String,
   emailVerified: json['emailVerified'] as bool? ?? false,
   image: json['image'] as String?,
-  createdAt:
-      json['createdAt'] == null
-          ? null
-          : const DateTimeSerializer().fromJson(json['createdAt']),
-  updatedAt:
-      json['updatedAt'] == null
-          ? null
-          : const DateTimeSerializer().fromJson(json['updatedAt']),
+  createdAt: json['createdAt'] == null
+      ? null
+      : const DateTimeSerializer().fromJson(json['createdAt']),
+  updatedAt: json['updatedAt'] == null
+      ? null
+      : const DateTimeSerializer().fromJson(json['updatedAt']),
   twoFactorEnabled: json['twoFactorEnabled'] as bool? ?? false,
   username: json['username'] as String?,
   displayUsername: json['displayUsername'] as String?,
@@ -29,10 +27,9 @@ _User _$UserFromJson(Map<String, dynamic> json) => _User(
   role: json['role'] as String?,
   banned: json['banned'] as bool? ?? false,
   banReason: json['banReason'] as String?,
-  banExpires:
-      json['banExpires'] == null
-          ? null
-          : DateTime.parse(json['banExpires'] as String),
+  banExpires: json['banExpires'] == null
+      ? null
+      : DateTime.parse(json['banExpires'] as String),
 );
 
 Map<String, dynamic> _$UserToJson(_User instance) => <String, dynamic>{
