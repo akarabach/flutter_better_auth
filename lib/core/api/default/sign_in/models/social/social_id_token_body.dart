@@ -11,7 +11,7 @@ abstract class SocialIdTokenBody with _$SocialIdTokenBody {
     String? nonce,
     String? accessToken,
     String? refreshToken,
-    @JsonKey(name: "id_token") String? idToken,
+    String? idToken,
     int? expiresAt,
   }) = _SocialIdTokenBody;
 

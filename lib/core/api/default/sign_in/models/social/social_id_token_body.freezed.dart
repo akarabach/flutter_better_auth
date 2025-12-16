@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SocialIdTokenBody {
 
- String get token; String? get nonce; String? get accessToken; String? get refreshToken;@JsonKey(name: "id_token") String? get idToken; int? get expiresAt;
+ String get token; String? get nonce; String? get accessToken; String? get refreshToken; String? get idToken; int? get expiresAt;
 /// Create a copy of SocialIdTokenBody
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $SocialIdTokenBodyCopyWith<$Res>  {
   factory $SocialIdTokenBodyCopyWith(SocialIdTokenBody value, $Res Function(SocialIdTokenBody) _then) = _$SocialIdTokenBodyCopyWithImpl;
 @useResult
 $Res call({
- String token, String? nonce, String? accessToken, String? refreshToken,@JsonKey(name: "id_token") String? idToken, int? expiresAt
+ String token, String? nonce, String? accessToken, String? refreshToken, String? idToken, int? expiresAt
 });
 
 
@@ -158,7 +158,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String token,  String? nonce,  String? accessToken,  String? refreshToken, @JsonKey(name: "id_token")  String? idToken,  int? expiresAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  String? idToken,  int? expiresAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SocialIdTokenBody() when $default != null:
 return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.idToken,_that.expiresAt);case _:
@@ -179,7 +179,7 @@ return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String token,  String? nonce,  String? accessToken,  String? refreshToken, @JsonKey(name: "id_token")  String? idToken,  int? expiresAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  String? idToken,  int? expiresAt)  $default,) {final _that = this;
 switch (_that) {
 case _SocialIdTokenBody():
 return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.idToken,_that.expiresAt);case _:
@@ -199,7 +199,7 @@ return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String token,  String? nonce,  String? accessToken,  String? refreshToken, @JsonKey(name: "id_token")  String? idToken,  int? expiresAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  String? idToken,  int? expiresAt)?  $default,) {final _that = this;
 switch (_that) {
 case _SocialIdTokenBody() when $default != null:
 return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.idToken,_that.expiresAt);case _:
@@ -214,14 +214,14 @@ return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_th
 @JsonSerializable()
 
 class _SocialIdTokenBody implements SocialIdTokenBody {
-  const _SocialIdTokenBody({required this.token, this.nonce, this.accessToken, this.refreshToken, @JsonKey(name: "id_token") this.idToken, this.expiresAt});
+  const _SocialIdTokenBody({required this.token, this.nonce, this.accessToken, this.refreshToken, this.idToken, this.expiresAt});
   factory _SocialIdTokenBody.fromJson(Map<String, dynamic> json) => _$SocialIdTokenBodyFromJson(json);
 
 @override final  String token;
 @override final  String? nonce;
 @override final  String? accessToken;
 @override final  String? refreshToken;
-@override@JsonKey(name: "id_token") final  String? idToken;
+@override final  String? idToken;
 @override final  int? expiresAt;
 
 /// Create a copy of SocialIdTokenBody
@@ -257,7 +257,7 @@ abstract mixin class _$SocialIdTokenBodyCopyWith<$Res> implements $SocialIdToken
   factory _$SocialIdTokenBodyCopyWith(_SocialIdTokenBody value, $Res Function(_SocialIdTokenBody) _then) = __$SocialIdTokenBodyCopyWithImpl;
 @override @useResult
 $Res call({
- String token, String? nonce, String? accessToken, String? refreshToken,@JsonKey(name: "id_token") String? idToken, int? expiresAt
+ String token, String? nonce, String? accessToken, String? refreshToken, String? idToken, int? expiresAt
 });
 
 
