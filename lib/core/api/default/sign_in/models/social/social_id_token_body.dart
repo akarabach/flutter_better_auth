@@ -11,6 +11,7 @@ abstract class SocialIdTokenBody with _$SocialIdTokenBody {
     String? nonce,
     String? accessToken,
     String? refreshToken,
+    String? idToken,
     int? expiresAt,
   }) = _SocialIdTokenBody;
 

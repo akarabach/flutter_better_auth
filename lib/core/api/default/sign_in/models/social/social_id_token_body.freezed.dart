@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SocialIdTokenBody {
 
- String get token; String? get nonce; String? get accessToken; String? get refreshToken; int? get expiresAt;
+ String get token; String? get nonce; String? get accessToken; String? get refreshToken; String? get idToken; int? get expiresAt;
 /// Create a copy of SocialIdTokenBody
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SocialIdTokenBodyCopyWith<SocialIdTokenBody> get copyWith => _$SocialIdTokenBod
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SocialIdTokenBody&&(identical(other.token, token) || other.token == token)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SocialIdTokenBody&&(identical(other.token, token) || other.token == token)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.idToken, idToken) || other.idToken == idToken)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,token,nonce,accessToken,refreshToken,expiresAt);
+int get hashCode => Object.hash(runtimeType,token,nonce,accessToken,refreshToken,idToken,expiresAt);
 
 @override
 String toString() {
-  return 'SocialIdTokenBody(token: $token, nonce: $nonce, accessToken: $accessToken, refreshToken: $refreshToken, expiresAt: $expiresAt)';
+  return 'SocialIdTokenBody(token: $token, nonce: $nonce, accessToken: $accessToken, refreshToken: $refreshToken, idToken: $idToken, expiresAt: $expiresAt)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $SocialIdTokenBodyCopyWith<$Res>  {
   factory $SocialIdTokenBodyCopyWith(SocialIdTokenBody value, $Res Function(SocialIdTokenBody) _then) = _$SocialIdTokenBodyCopyWithImpl;
 @useResult
 $Res call({
- String token, String? nonce, String? accessToken, String? refreshToken, int? expiresAt
+ String token, String? nonce, String? accessToken, String? refreshToken, String? idToken, int? expiresAt
 });
 
 
@@ -65,12 +65,13 @@ class _$SocialIdTokenBodyCopyWithImpl<$Res>
 
 /// Create a copy of SocialIdTokenBody
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? token = null,Object? nonce = freezed,Object? accessToken = freezed,Object? refreshToken = freezed,Object? expiresAt = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? token = null,Object? nonce = freezed,Object? accessToken = freezed,Object? refreshToken = freezed,Object? idToken = freezed,Object? expiresAt = freezed,}) {
   return _then(_self.copyWith(
 token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,nonce: freezed == nonce ? _self.nonce : nonce // ignore: cast_nullable_to_non_nullable
 as String?,accessToken: freezed == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
 as String?,refreshToken: freezed == refreshToken ? _self.refreshToken : refreshToken // ignore: cast_nullable_to_non_nullable
+as String?,idToken: freezed == idToken ? _self.idToken : idToken // ignore: cast_nullable_to_non_nullable
 as String?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as int?,
   ));
@@ -157,10 +158,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  int? expiresAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  String? idToken,  int? expiresAt)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SocialIdTokenBody() when $default != null:
-return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.expiresAt);case _:
+return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.idToken,_that.expiresAt);case _:
   return orElse();
 
 }
@@ -178,10 +179,10 @@ return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  int? expiresAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  String? idToken,  int? expiresAt)  $default,) {final _that = this;
 switch (_that) {
 case _SocialIdTokenBody():
-return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.expiresAt);case _:
+return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.idToken,_that.expiresAt);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +199,10 @@ return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_th
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  int? expiresAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String token,  String? nonce,  String? accessToken,  String? refreshToken,  String? idToken,  int? expiresAt)?  $default,) {final _that = this;
 switch (_that) {
 case _SocialIdTokenBody() when $default != null:
-return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.expiresAt);case _:
+return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_that.idToken,_that.expiresAt);case _:
   return null;
 
 }
@@ -213,13 +214,14 @@ return $default(_that.token,_that.nonce,_that.accessToken,_that.refreshToken,_th
 @JsonSerializable()
 
 class _SocialIdTokenBody implements SocialIdTokenBody {
-  const _SocialIdTokenBody({required this.token, this.nonce, this.accessToken, this.refreshToken, this.expiresAt});
+  const _SocialIdTokenBody({required this.token, this.nonce, this.accessToken, this.refreshToken, this.idToken, this.expiresAt});
   factory _SocialIdTokenBody.fromJson(Map<String, dynamic> json) => _$SocialIdTokenBodyFromJson(json);
 
 @override final  String token;
 @override final  String? nonce;
 @override final  String? accessToken;
 @override final  String? refreshToken;
+@override final  String? idToken;
 @override final  int? expiresAt;
 
 /// Create a copy of SocialIdTokenBody
@@ -235,16 +237,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SocialIdTokenBody&&(identical(other.token, token) || other.token == token)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SocialIdTokenBody&&(identical(other.token, token) || other.token == token)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.accessToken, accessToken) || other.accessToken == accessToken)&&(identical(other.refreshToken, refreshToken) || other.refreshToken == refreshToken)&&(identical(other.idToken, idToken) || other.idToken == idToken)&&(identical(other.expiresAt, expiresAt) || other.expiresAt == expiresAt));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,token,nonce,accessToken,refreshToken,expiresAt);
+int get hashCode => Object.hash(runtimeType,token,nonce,accessToken,refreshToken,idToken,expiresAt);
 
 @override
 String toString() {
-  return 'SocialIdTokenBody(token: $token, nonce: $nonce, accessToken: $accessToken, refreshToken: $refreshToken, expiresAt: $expiresAt)';
+  return 'SocialIdTokenBody(token: $token, nonce: $nonce, accessToken: $accessToken, refreshToken: $refreshToken, idToken: $idToken, expiresAt: $expiresAt)';
 }
 
 
@@ -255,7 +257,7 @@ abstract mixin class _$SocialIdTokenBodyCopyWith<$Res> implements $SocialIdToken
   factory _$SocialIdTokenBodyCopyWith(_SocialIdTokenBody value, $Res Function(_SocialIdTokenBody) _then) = __$SocialIdTokenBodyCopyWithImpl;
 @override @useResult
 $Res call({
- String token, String? nonce, String? accessToken, String? refreshToken, int? expiresAt
+ String token, String? nonce, String? accessToken, String? refreshToken, String? idToken, int? expiresAt
 });
 
 
@@ -272,12 +274,13 @@ class __$SocialIdTokenBodyCopyWithImpl<$Res>
 
 /// Create a copy of SocialIdTokenBody
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? token = null,Object? nonce = freezed,Object? accessToken = freezed,Object? refreshToken = freezed,Object? expiresAt = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? token = null,Object? nonce = freezed,Object? accessToken = freezed,Object? refreshToken = freezed,Object? idToken = freezed,Object? expiresAt = freezed,}) {
   return _then(_SocialIdTokenBody(
 token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String,nonce: freezed == nonce ? _self.nonce : nonce // ignore: cast_nullable_to_non_nullable
 as String?,accessToken: freezed == accessToken ? _self.accessToken : accessToken // ignore: cast_nullable_to_non_nullable
 as String?,refreshToken: freezed == refreshToken ? _self.refreshToken : refreshToken // ignore: cast_nullable_to_non_nullable
+as String?,idToken: freezed == idToken ? _self.idToken : idToken // ignore: cast_nullable_to_non_nullable
 as String?,expiresAt: freezed == expiresAt ? _self.expiresAt : expiresAt // ignore: cast_nullable_to_non_nullable
 as int?,
   ));

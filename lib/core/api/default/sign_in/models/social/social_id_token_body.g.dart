@@ -12,6 +12,7 @@ _SocialIdTokenBody _$SocialIdTokenBodyFromJson(Map<String, dynamic> json) =>
       nonce: json['nonce'] as String?,
       accessToken: json['accessToken'] as String?,
       refreshToken: json['refreshToken'] as String?,
+      idToken: json['idToken'] as String?,
       expiresAt: (json['expiresAt'] as num?)?.toInt(),
     );
 
@@ -21,5 +22,6 @@ Map<String, dynamic> _$SocialIdTokenBodyToJson(_SocialIdTokenBody instance) =>
       'nonce': instance.nonce,
       'accessToken': instance.accessToken,
       'refreshToken': instance.refreshToken,
+      'idToken': instance.idToken,
       'expiresAt': instance.expiresAt,
     };
