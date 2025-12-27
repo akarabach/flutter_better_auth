@@ -16,20 +16,33 @@ class HiveStorage implements StorageInterface {
 
   @override
   Future<void> saveCookies(String url, List<Cookie> cookies) async {
-    final list =
-        cookies
-            .map(
-              (c) => {
-                'name': c.name,
-                'value': c.value,
-                'expires': c.expires?.millisecondsSinceEpoch,
-                'path': c.path,
-                'domain': c.domain,
-                'httpOnly': c.httpOnly,
-                'secure': c.secure,
-              },
-            )
-            .toList();
+    // Load existing cookies (this also filters out expired ones)
+    final existingCookies = await loadCookies(url);
+    final cookieMap = <String, Cookie>{};
+
+    // Add existing cookies to map
+    for (final cookie in existingCookies) {
+      cookieMap[cookie.name] = cookie;
+    }
+
+    // Override with new cookies (or add new ones)
+    for (final cookie in cookies) {
+      cookieMap[cookie.name] = cookie;
+    }
+
+    final list = cookieMap.values
+        .map(
+          (c) => {
+            'name': c.name,
+            'value': c.value,
+            'expires': c.expires?.millisecondsSinceEpoch,
+            'path': c.path,
+            'domain': c.domain,
+            'httpOnly': c.httpOnly,
+            'secure': c.secure,
+          },
+        )
+        .toList();
     await _box.put(url, list);
   }
 
@@ -40,10 +53,9 @@ class HiveStorage implements StorageInterface {
 
     return (data as List).map<Cookie>((c) {
       final cookie = Cookie(c['name'], c['value']);
-      cookie.expires =
-          c['expires'] != null
-              ? DateTime.fromMillisecondsSinceEpoch(c['expires'])
-              : null;
+      cookie.expires = c['expires'] != null
+          ? DateTime.fromMillisecondsSinceEpoch(c['expires'])
+          : null;
       cookie.path = c['path'];
       cookie.domain = c['domain'];
       cookie.httpOnly = c['httpOnly'] ?? false;
