@@ -8,10 +8,10 @@ extension JwtBetterAuthExtension on BetterAuthClient {
     baseUrl: FlutterBetterAuth.baseUrl,
   );
 
-  Future<String?> jwtTokenFromCookie() async {
+  Future<String?> jwtTokenFromCookie(String? url) async {
     final cookies =
         await FlutterBetterAuth.storage?.loadCookies(
-          FlutterBetterAuth.baseUrl,
+          url ?? FlutterBetterAuth.baseUrl,
         ) ??
         [];
 
@@ -20,8 +20,6 @@ extension JwtBetterAuthExtension on BetterAuthClient {
     final jwtCookie = cookies.firstWhere(
       (c) => c.name == 'better-auth.convex_jwt',
     );
-
-    print(jwtCookie);
 
     return jwtCookie.value;
   }
