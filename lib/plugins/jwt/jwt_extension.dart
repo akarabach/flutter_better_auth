@@ -15,8 +15,6 @@ extension JwtBetterAuthExtension on BetterAuthClient {
         ) ??
         [];
 
-    print(cookies);
-
     final jwtCookie = cookies.firstWhere(
       (c) => c.name == 'better-auth.convex_jwt',
     );
