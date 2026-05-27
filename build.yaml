@@ -1,6 +1,17 @@
 targets:
   $default:
+    sources:
+      - $package$
+      - lib/**
+      - test/**
+      - pubspec.yaml
     builders:
       json_serializable:
         options:
           explicit_to_json: true
+      freezed:
+        options:
+          # Workaround for https://github.com/rrousselGit/freezed/issues/1352 —
+          # without this, freezed emits `final` modifiers on collection parameters
+          # in const constructors, which Dart 3.13+ rejects.
+          make_collections_unmodifiable: false

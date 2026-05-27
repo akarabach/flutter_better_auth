@@ -209,16 +209,10 @@ return $default(_that.keys);case _:
 @JsonSerializable()
 
 class _JwtKeyResponse implements JwtKeyResponse {
-  const _JwtKeyResponse({required final  List<JwtKey> keys}): _keys = keys;
+  const _JwtKeyResponse({required this.keys});
   factory _JwtKeyResponse.fromJson(Map<String, dynamic> json) => _$JwtKeyResponseFromJson(json);
 
- final  List<JwtKey> _keys;
-@override List<JwtKey> get keys {
-  if (_keys is EqualUnmodifiableListView) return _keys;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_keys);
-}
-
+@override final  List<JwtKey> keys;
 
 /// Create a copy of JwtKeyResponse
 /// with the given fields replaced by the non-null parameter values.
@@ -233,12 +227,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JwtKeyResponse&&const DeepCollectionEquality().equals(other._keys, _keys));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _JwtKeyResponse&&const DeepCollectionEquality().equals(other.keys, keys));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_keys));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(keys));
 
 @override
 String toString() {
@@ -272,7 +266,7 @@ class __$JwtKeyResponseCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? keys = null,}) {
   return _then(_JwtKeyResponse(
-keys: null == keys ? _self._keys : keys // ignore: cast_nullable_to_non_nullable
+keys: null == keys ? _self.keys : keys // ignore: cast_nullable_to_non_nullable
 as List<JwtKey>,
   ));
 }

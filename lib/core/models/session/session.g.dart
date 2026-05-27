@@ -17,6 +17,7 @@ _Session _$SessionFromJson(Map<String, dynamic> json) => _Session(
   userId: json['userId'] as String,
   impersonatedBy: json['impersonatedBy'] as String?,
   activeOrganizationId: json['activeOrganizationId'] as String?,
+  activeTeamId: json['activeTeamId'] as String?,
 );
 
 Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{
@@ -36,6 +37,7 @@ Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{
   'userId': instance.userId,
   'impersonatedBy': instance.impersonatedBy,
   'activeOrganizationId': instance.activeOrganizationId,
+  'activeTeamId': instance.activeTeamId,
 };
 
 Json? _$JsonConverterToJson<Json, Value>(
